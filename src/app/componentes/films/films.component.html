@@ -1,0 +1,23 @@
+
+<header>Pagina de Films</header>
+<div *ngFor="let i of films">
+    <span>{{i.nombre}}</span>
+    <hr>
+    <span>Director:{{i.director}}</span>
+    <hr>
+   <span >{{i.personajes}}</span>
+    <span>Numero del Film:{{i.id}}</span>
+    
+</div>
+
+<div routerLink="Personajes">
+    <button (click)="tomarId($event)"  id="1" >Personajes de Film Numero 1</button>
+    <button (click)="tomarId($event)"  id="2" >Personajes de Film Numero 2</button>
+    <button (click)="tomarId($event)"  id="3" >Personajes de Film Numero 3</button>
+    <button (click)="tomarId($event)"  id="4" >Personajes de Film Numero 4</button>
+    <button (click)="tomarId($event)"  id="5" >Personajes de Film Numero 5</button>
+    <button (click)="tomarId($event)"  id="6" >Personajes de Film Numero 6</button>
+
+</div>
+
+
