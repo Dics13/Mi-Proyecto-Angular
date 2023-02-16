@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
-import { TomarDatos } from 'src/app/ngrx/Actions'; 
-
+import { SwapiService } from 'src/app/servicios/swapi.service'; 
+import { Store } from '@ngrx/store';
+import { ListaPersonajes } from 'src/app/ngrx/personajes.action';
 import axios from "axios"
 
 @Component({
@@ -10,8 +11,10 @@ import axios from "axios"
 })
 export class FilmsComponent {
   films:any=[];
-  i:any; 
-constructor(){
+  listaPersonajes:any=[];
+
+
+constructor( private SwapiService:SwapiService, private Store:Store){
 }
 async ngOnInit(){
   let datos= await axios.get("https://swapi.dev/api/films")
@@ -25,9 +28,12 @@ async ngOnInit(){
   })
 }
  
-   tomarId(event:any){
-  let id:number=event.target.id;
-   async ()=>{TomarDatos(id)
-   let datos= await axios.get("https://swapi.dev/api/films")
-   console.log(datos)}
-}}
+   tomarId(id:any){
+   this.SwapiService.getPersonajes(id).then((res:any)=>{
+      this.listaPersonajes=res;
+      this.Store.dispatch(ListaPersonajes(this.listaPersonajes))
+   })
+   
+}
+
+}

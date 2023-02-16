@@ -6,7 +6,7 @@ import { FilmsComponent } from './componentes/films/films.component';
 import { PersonajesComponent } from './componentes/personajes/personajes.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { StoreModule } from '@ngrx/store';
-import { Reducer } from './ngrx/Reducer';
+import { Reducer } from './ngrx/reducer.reducer';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
